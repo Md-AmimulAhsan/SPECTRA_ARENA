@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="588.0" prefWidth="931.0" style="-fx-background-color: #bfb4ba;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spectra_arena.PingPong_Game">
+    <children>
+        <Canvas fx:id="gameCanvas" height="588.0" layoutX="158.0" width="609.0" />
+        <Label layoutX="29.0" layoutY="132.0" prefHeight="31.0" prefWidth="106.0" text="Player-1 " textFill="#78811b">
+            <font>
+                <Font name="Algerian" size="21.0" />
+            </font>
+        </Label>
+        <Label fx:id="score2" layoutX="29.0" layoutY="175.0" prefHeight="27.0" prefWidth="99.0" text="Score:" textFill="#d90069">
+            <font>
+                <Font name="System Bold" size="17.0" />
+            </font>
+        </Label>
+        <Label layoutX="799.0" layoutY="132.0" prefHeight="31.0" prefWidth="106.0" text="Player-2 " textFill="#78811b">
+            <font>
+                <Font name="Algerian" size="21.0" />
+            </font>
+        </Label>
+        <Label fx:id="score1" layoutX="799.0" layoutY="175.0" prefHeight="27.0" prefWidth="99.0" text="Score:" textFill="#d90069">
+            <font>
+                <Font name="System Bold" size="17.0" />
+            </font>
+        </Label>
+        <Label fx:id="best2" layoutX="799.0" layoutY="260.0" prefHeight="27.0" prefWidth="99.0" text="Best:" textFill="#009905">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Label>
+        <Label fx:id="best1" layoutX="29.0" layoutY="260.0" prefHeight="27.0" prefWidth="99.0" text="Best:" textFill="#009905">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+        </Label>
+        <ImageView fx:id="player2Heart1" fitHeight="27.0" fitWidth="27.0" layoutX="29.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@images-removebg-preview.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="player2Heart2" fitHeight="27.0" fitWidth="27.0" layoutX="65.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@images-removebg-preview.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="player2Heart3" fitHeight="27.0" fitWidth="27.0" layoutX="101.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@images-removebg-preview.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="player1Heart1" fitHeight="27.0" fitWidth="27.0" layoutX="799.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@images-removebg-preview.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="player1Heart2" fitHeight="27.0" fitWidth="27.0" layoutX="835.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@images-removebg-preview.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="player1Heart3" fitHeight="27.0" fitWidth="27.0" layoutX="871.0" layoutY="215.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@images-removebg-preview.png" />
+            </image>
+        </ImageView>
+        <Label fx:id="gameOver" layoutX="323.0" layoutY="118.0" prefHeight="58.0" prefWidth="285.0" text="!! Game Over !!" textFill="#c502f5">
+            <font>
+                <Font name="System Bold" size="40.0" />
+            </font>
+        </Label>
+        <Label fx:id="wins1" layoutX="359.0" layoutY="392.0" text="Player-1 Wins !" textFill="#d1f502">
+            <font>
+                <Font name="System Bold" size="30.0" />
+            </font>
+        </Label>
+        <Label fx:id="wins2" layoutX="359.0" layoutY="392.0" text="Player-2 Wins !" textFill="#d1f502">
+            <font>
+                <Font name="System Bold" size="30.0" />
+            </font>
+        </Label>
+        <Label fx:id="BestDisplay" layoutX="400.0" layoutY="438.0" prefHeight="46.0" prefWidth="145.0" text="Score = " textFill="#d1f502">
+            <font>
+                <Font name="System Bold" size="30.0" />
+            </font>
+        </Label>
+      <Button layoutX="813.0" layoutY="542.0" mnemonicParsing="false" onAction="#GoBack" style="-fx-background-color: #6cd4c1;" text="Go Back">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Button>
+    </children>
+</AnchorPane>

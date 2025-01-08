@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<StackPane fx:id="sp" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="954.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spectra_arena.Login_Page">
+    <children>
+        <AnchorPane fx:id="Main_layer" onDragDetected="#initialize" prefHeight="200.0" prefWidth="200.0">
+            <children>
+                <AnchorPane fx:id="layer1" prefHeight="620.0" prefWidth="422.0" style="-fx-background-color: #5a1951;">
+                    <children>
+                        <Button fx:id="su" layoutX="161.0" layoutY="421.0" mnemonicParsing="false" onAction="#su" prefHeight="31.0" prefWidth="99.0" style="-fx-background-radius: 50 50 50 50; -fx-background-color: #5a1951; -fx-border-width: 1; -fx-border-color: white; -fx-border-radius: 50 50 50 50;" text="Sign Up" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Button>
+                        <Label fx:id="l1" layoutX="47.0" layoutY="195.0" prefHeight="47.0" prefWidth="328.0" text="Welcome To The Areana of Limitless" textFill="WHITE">
+                            <font>
+                                <Font name="Harrington" size="20.0" />
+                            </font>
+                        </Label>
+                        <Text fx:id="t1" fill="WHITE" layoutX="129.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ready to Dominate?">
+                            <font>
+                                <Font name="Times New Roman" size="20.0" />
+                            </font>
+                        </Text>
+                        <Text fx:id="t2" fill="WHITE" layoutX="82.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="The Arena is Yours to Conquer!">
+                            <font>
+                                <Font name="Times New Roman" size="20.0" />
+                            </font>
+                        </Text>
+                        <Button fx:id="si" layoutX="160.0" layoutY="421.0" mnemonicParsing="false" onAction="#si" onKeyPressed="#si" onMouseClicked="#si" prefHeight="31.0" prefWidth="99.0" style="-fx-background-radius: 50 50 50 50; -fx-background-color: #5a1951; -fx-border-width: 1; -fx-border-color: white; -fx-border-radius: 50 50 50 50;" text="Sign In" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Button>
+                        <Label fx:id="l2" layoutX="138.0" layoutY="195.0" prefHeight="47.0" prefWidth="144.0" text="Welcome Back !" textFill="WHITE">
+                            <font>
+                                <Font name="Harrington" size="20.0" />
+                            </font>
+                        </Label>
+                        <Text fx:id="t3" fill="WHITE" layoutX="102.0" layoutY="291.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Dominate The Arena ">
+                            <font>
+                                <Font name="Times New Roman" size="20.0" />
+                            </font>
+                        </Text>
+                        <Text fx:id="t4" fill="WHITE" layoutX="65.0" layoutY="339.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Place Where Limit Meets With You">
+                            <font>
+                                <Font name="Times New Roman" size="20.0" />
+                            </font>
+                        </Text>
+                    </children>
+                </AnchorPane>
+                <AnchorPane fx:id="layer2" layoutX="422.0" prefHeight="620.0" prefWidth="537.0" style="-fx-background-color: #f4f4fc;">
+                    <children>
+                        <Button fx:id="si_f" layoutX="219.0" layoutY="415.0" mnemonicParsing="false" onAction="#si_f" prefHeight="31.0" prefWidth="99.0" style="-fx-background-color: #f4f4fc; -fx-border-width: 1; -fx-border-color: #5a1951; -fx-border-radius: 50 50 50 50; -fx-background-radius: 50 50 50 50;" text="Sign In" textFill="#5a1951">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Button>
+                        <Label fx:id="l3" layoutX="116.0" layoutY="51.0" text="Sign In To Spectra Arena" textAlignment="CENTER" textFill="#5a1951">
+                            <font>
+                                <Font name="Arial Rounded MT Bold" size="26.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="tf1" layoutX="111.0" layoutY="204.0" prefHeight="39.0" prefWidth="316.0" promptText="Username" style="-fx-background-radius: 50 50 50 50;" />
+                        <PasswordField fx:id="pw1" layoutX="109.0" layoutY="306.0" prefHeight="39.0" prefWidth="316.0" promptText="Password" style="-fx-background-radius: 50 50 50 50;" />
+                        <Label fx:id="l4" contentDisplay="BOTTOM" layoutX="110.0" layoutY="544.0" prefHeight="50.0" prefWidth="363.0" text="Rule The Arena, Defy The Limits" textFill="#5a1951">
+                            <font>
+                                <Font name="Chiller" size="35.0" />
+                            </font>
+                        </Label>
+                        <Hyperlink fx:id="h1" layoutX="197.0" layoutY="371.0" text="Forgot Your password ?" textFill="#5a1951">
+                            <font>
+                                <Font name="Times New Roman Bold" size="13.0" />
+                            </font>
+                        </Hyperlink>
+                        <Button fx:id="in" alignment="CENTER" contentDisplay="CENTER" layoutX="304.0" layoutY="108.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="45.0" style="-fx-background-radius: 50%; -fx-background-color: #5a1951;" text="in" textFill="#0077b5">
+                            <font>
+                                <Font name="Arial Rounded MT Bold" size="20.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="g" alignment="CENTER" contentDisplay="CENTER" layoutX="246.0" layoutY="108.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="45.0" style="-fx-background-radius: 50%; -fx-background-color: #5a1951;" text="g" textFill="#b34c2d">
+                            <font>
+                                <Font name="Times New Roman" size="22.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="f" alignment="CENTER" contentDisplay="CENTER" layoutX="190.0" layoutY="108.0" mnemonicParsing="false" prefHeight="47.0" prefWidth="45.0" style="-fx-background-radius: 50%; -fx-background-color: #5a1951;" text="f" textFill="#1877f2">
+                            <font>
+                                <Font name="SansSerif Bold" size="21.0" />
+                            </font>
+                        </Button>
+                        <Hyperlink fx:id="h2" layoutX="208.0" layoutY="163.0" prefHeight="22.0" prefWidth="132.0" text="or use email address" textFill="#5a1951">
+                            <font>
+                                <Font name="Times New Roman Bold" size="13.0" />
+                            </font>
+                        </Hyperlink>
+                        <Label fx:id="l5" layoutX="105.0" layoutY="51.0" text="Sign Up To Spectra Arena" textAlignment="CENTER" textFill="#5a1951">
+                            <font>
+                                <Font name="Arial Rounded MT Bold" size="26.0" />
+                            </font>
+                        </Label>
+                        <PasswordField fx:id="pw2" layoutX="109.0" layoutY="332.0" prefHeight="39.0" prefWidth="316.0" promptText="Password (use all keyword except &quot;-&quot;)" style="-fx-background-radius: 50 50 50 50;" />
+                        <TextField fx:id="tf2" layoutX="111.0" layoutY="270.0" prefHeight="39.0" prefWidth="316.0" promptText="E-mail" style="-fx-background-radius: 50 50 50 50;" />
+                        <Button fx:id="b_last" layoutX="219.0" layoutY="415.0" mnemonicParsing="false" onAction="#b_last" prefHeight="31.0" prefWidth="99.0" style="-fx-background-color: #f4f4fc; -fx-border-width: 1; -fx-border-color: #5a1951; -fx-border-radius: 50 50 50 50; -fx-background-radius: 50 50 50 50;" text="Sign Up" textFill="#5a1951">
+                            <font>
+                                <Font name="System Bold" size="13.0" />
+                            </font>
+                        </Button>
+                        <Label fx:id="invalidUsername" layoutX="196.0" layoutY="243.0" text="Username cannot be empty" textFill="#f40505">
+                            <font>
+                                <Font name="System Bold" size="11.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="invalidEmail" layoutX="188.0" layoutY="310.0" text="Email address cannot be empty" textFill="#f40505">
+                            <font>
+                                <Font name="System Bold" size="11.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="invalidPassword" layoutX="196.0" layoutY="374.0" text="Please use a valid Password" textFill="#f40505">
+                            <font>
+                                <Font name="System Bold" size="11.0" />
+                            </font>
+                        </Label>
+                        <Label fx:id="invalidPasswordSignIn" layoutX="199.0" layoutY="344.0" text="Password cannot be empty" textFill="#f40505">
+                            <font>
+                                <Font name="System Bold" size="11.0" />
+                            </font>
+                        </Label>
+                        <TextField fx:id="tf1SignIn" layoutX="111.0" layoutY="239.0" prefHeight="39.0" prefWidth="316.0" promptText="Username" style="-fx-background-radius: 50 50 50 50;" />
+                        <Label fx:id="invalidUsernameSignIn" layoutX="198.0" layoutY="282.0" text="Username cannot be empty" textFill="#f40505">
+                            <font>
+                                <Font name="System Bold" size="11.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </AnchorPane>
+            </children>
+        </AnchorPane>
+    </children>
+</StackPane>
+

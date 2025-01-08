@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="954.0" style="-fx-background-color: #0b1524;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spectra_arena.Dashboard">
+    <children>
+        <AnchorPane prefHeight="58.0" prefWidth="953.0" style="-fx-background-color: #0c1f3d;">
+            <children>
+                <Button mnemonicParsing="false" prefHeight="56.0" prefWidth="66.0" style="-fx-background-color: #0c1f3d;" />
+                <ImageView fitHeight="42.0" fitWidth="33.0" layoutX="17.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@png-clipart-three-gray-lines-illustration-hamburger-menu-icon-icons-logos-emojis-menu-icons-thumbnail-removebg-preview.png" />
+                    </image>
+                </ImageView>
+                <Button layoutX="66.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="54.0" style="-fx-background-color: #0c1f3d;" />
+                <Button layoutX="123.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="54.0" style="-fx-background-color: #0c1f3d;" />
+                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="78.0" layoutY="15.0" pickOnBounds="true">
+                    <image>
+                        <Image url="@e1bb7f40017e01d335fc1d5174ef9dbf-removebg-preview.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="135.0" layoutY="15.0" pickOnBounds="true" rotate="180.0">
+                    <image>
+                        <Image url="@e1bb7f40017e01d335fc1d5174ef9dbf-removebg-preview.png" />
+                    </image>
+                </ImageView>
+                <TextField layoutX="253.0" layoutY="9.0" prefHeight="40.0" prefWidth="446.0" promptText="Search" style="-fx-background-radius: 50 50 50 50; -fx-background-color: #1c345c; -fx-text-fill: #FAF9F6;">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </TextField>
+                <Button layoutX="559.0" layoutY="9.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="139.0" style="-fx-background-radius: 0 50 50 0; -fx-background-color: #1c345c;" />
+                <ImageView fitHeight="24.0" fitWidth="23.0" layoutX="667.0" layoutY="18.0" pickOnBounds="true">
+                    <image>
+                        <Image url="@250-2506929_search-search-icon-png-gray-removebg-preview.png" />
+                    </image>
+                </ImageView>
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="icons" layoutY="66.0" prefHeight="546.0" prefWidth="68.0" style="-fx-background-color: #0b1524;">
+            <children>
+                <Button fx:id="Home" layoutY="-2.0" mnemonicParsing="false" prefHeight="58.0" prefWidth="66.0" style="-fx-background-color: #0b1524;" />
+                <Button layoutY="56.0" mnemonicParsing="false" onMouseEntered="#showDetails" onMouseExited="#hideDetails" prefHeight="56.0" prefWidth="66.0" style="-fx-background-color: #0b1524;" />
+                <Button layoutY="112.0" mnemonicParsing="false" onMouseEntered="#showDetails" onMouseExited="#hideDetails" prefHeight="56.0" prefWidth="66.0" style="-fx-background-color: #0b1524;" />
+                <Button layoutY="168.0" mnemonicParsing="false" onMouseEntered="#showDetails" onMouseExited="#hideDetails" prefHeight="56.0" prefWidth="66.0" style="-fx-background-color: #0b1524;" />
+                <Button layoutY="224.0" mnemonicParsing="false" onMouseEntered="#showDetails" onMouseExited="#hideDetails" prefHeight="56.0" prefWidth="66.0" style="-fx-background-color: #0b1524;" />
+                <Button layoutY="280.0" mnemonicParsing="false" onMouseEntered="#showDetails" onMouseExited="#hideDetails" prefHeight="56.0" prefWidth="66.0" style="-fx-background-color: #0b1524;" />
+                <Button layoutY="336.0" mnemonicParsing="false" onMouseEntered="#showDetails" onMouseExited="#hideDetails" prefHeight="56.0" prefWidth="66.0" style="-fx-background-color: #0b1524;" />
+                <Button layoutY="392.0" mnemonicParsing="false" onMouseEntered="#showDetails" onMouseExited="#hideDetails" prefHeight="56.0" prefWidth="66.0" style="-fx-background-color: #0b1524;" />
+                <Button layoutY="448.0" mnemonicParsing="false" onMouseEntered="#showDetails" onMouseExited="#hideDetails" prefHeight="56.0" prefWidth="66.0" style="-fx-background-color: #0b1524;" />
+                <Button layoutY="504.0" mnemonicParsing="false" onAction="#Logout" onMouseEntered="#showDetails" onMouseExited="#hideDetails" prefHeight="48.0" prefWidth="66.0" style="-fx-background-color: #0b1524;" />
+                <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="17.0" layoutY="12.0" onMouseEntered="#showDetails" onMouseExited="#hideDetails" pickOnBounds="true">
+                    <image>
+                        <Image url="@Home.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="17.0" layoutY="68.0" onMouseEntered="#showDetails" onMouseExited="#hideDetails" pickOnBounds="true">
+                    <image>
+                        <Image url="@Recent.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="17.0" layoutY="124.0" onMouseEntered="#showDetails" onMouseExited="#hideDetails" pickOnBounds="true">
+                    <image>
+                        <Image url="@Trending.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="17.0" layoutY="180.0" onMouseEntered="#showDetails" onMouseExited="#hideDetails" pickOnBounds="true">
+                    <image>
+                        <Image url="@Updated.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="17.0" layoutY="236.0" onMouseEntered="#showDetails" onMouseExited="#hideDetails" pickOnBounds="true">
+                    <image>
+                        <Image url="@Multiplayer.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="17.0" layoutY="292.0" onMouseEntered="#showDetails" onMouseExited="#hideDetails" pickOnBounds="true">
+                    <image>
+                        <Image url="@Puzzle.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="17.0" layoutY="348.0" onMouseEntered="#showDetails" onMouseExited="#hideDetails" pickOnBounds="true">
+                    <image>
+                        <Image url="@Casual.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="17.0" layoutY="404.0" onMouseEntered="#showDetails" onMouseExited="#hideDetails" pickOnBounds="true">
+                    <image>
+                        <Image url="@Minecraft.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="19.0" layoutY="517.0" onMouseEntered="#showDetails" onMouseExited="#hideDetails" pickOnBounds="true">
+                    <image>
+                        <Image url="@1053210-removebg-preview.png" />
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="17.0" layoutY="459.0" onMouseEntered="#showDetails" onMouseExited="#hideDetails" pickOnBounds="true">
+                    <image>
+                        <Image url="@icone-messager-jaune-removebg-preview.png" />
+                    </image>
+                </ImageView>
+                <Line fx:id="sp" endX="108.40000915527344" endY="-219.0" layoutX="-43.0" layoutY="213.0" startX="109.40000915527344" startY="339.0" stroke="#9c9a95" />
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="80.0" layoutY="77.0" prefHeight="138.0" prefWidth="860.0" style="-fx-background-color: #0c1f3d; -fx-background-radius: 3 3 3 3;">
+            <children>
+                <ImageView fitHeight="138.0" fitWidth="198.0" layoutX="457.0" pickOnBounds="true">
+                    <image>
+                        <Image url="@672612084370d8dcf922e004ad1a4d64-removebg-preview.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="268.0" layoutY="26.0" prefHeight="26.0" prefWidth="106.0" text="Welcome To" textFill="#f7f4f4">
+                    <font>
+                        <Font name="Colonna MT" size="20.0" />
+                    </font>
+                </Label>
+                <Label layoutX="186.0" layoutY="53.0" prefHeight="31.0" prefWidth="270.0" text="S p e c t r a  A r e n a" textFill="#b142a2">
+                    <font>
+                        <Font name="Algerian" size="25.0" />
+                    </font>
+                </Label>
+                <Label alignment="CENTER" contentDisplay="CENTER" graphicTextGap="10.0" layoutX="214.0" layoutY="90.0" prefHeight="26.0" prefWidth="213.0" text="T h r i l l i n g   S t a r t s   H e r e" textFill="#6ec7c5">
+                    <font>
+                        <Font name="Bell MT" size="15.0" />
+                    </font>
+                    <effect>
+                        <DropShadow />
+                    </effect>
+                </Label>
+            </children></AnchorPane>
+        <Label layoutX="80.0" layoutY="423.0" text="Best Multiplayer Games" textFill="#f7f4f4">
+            <font>
+                <Font name="System Bold" size="17.0" />
+            </font>
+        </Label>
+        <AnchorPane layoutX="82.0" layoutY="265.0" prefHeight="144.0" prefWidth="206.0" style="-fx-background-color: #0c1f3d; -fx-background-radius: 3 3 3 3;">
+            <children>
+                <ImageView fitHeight="89.0" fitWidth="198.0" layoutX="4.0" layoutY="5.0" pickOnBounds="true">
+                    <image>
+                        <Image url="@download%20(1)%20(1).png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="6.0" layoutY="98.0" prefHeight="20.0" prefWidth="100.0" text="Jungle Snake" textFill="#fafafa">
+                    <font>
+                        <Font name="Bauhaus 93" size="17.0" />
+                    </font>
+                </Label>
+                <ImageView fitHeight="17.0" fitWidth="91.0" layoutX="4.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@images__3_-removebg-preview.png" />
+                    </image>
+                </ImageView>
+                <Button layoutX="140.0" layoutY="113.0" mnemonicParsing="false" onAction="#SnakeGame" style="-fx-background-color: #8d7e9c;" text="P L A Y" textFill="#02ff2c">
+                    <font>
+                        <Font name="Georgia" size="13.0" />
+                    </font>
+                </Button>
+            </children>
+        </AnchorPane>
+        <Label layoutX="80.0" layoutY="227.0" prefHeight="26.0" prefWidth="220.0" text="Popular Games Right Now" textFill="#f7f4f4">
+            <font>
+                <Font name="System Bold" size="17.0" />
+            </font>
+        </Label>
+        <AnchorPane layoutX="82.0" layoutY="461.0" prefHeight="144.0" prefWidth="206.0" style="-fx-background-color: #0c1f3d; -fx-background-radius: 3 3 3 3;">
+            <children>
+                <ImageView fitHeight="89.0" fitWidth="198.0" layoutX="4.0" layoutY="5.0" pickOnBounds="true">
+                    <image>
+                        <Image url="@onetap.game.tictactoe.sc0.2024-09-30-22-11-55.jpg" />
+                    </image>
+                </ImageView>
+                <Label layoutX="6.0" layoutY="98.0" prefHeight="20.0" prefWidth="100.0" text="Tic-Tac-Toe" textFill="#fafafa">
+                    <font>
+                        <Font name="Bauhaus 93" size="17.0" />
+                    </font>
+                </Label>
+                <ImageView fitHeight="17.0" fitWidth="91.0" layoutX="4.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@images__3_-removebg-preview.png" />
+                    </image>
+                </ImageView>
+                <Button layoutX="140.0" layoutY="113.0" mnemonicParsing="false" onAction="#TicTacToeGame" style="-fx-background-color: #8d7e9c;" text="P L A Y" textFill="#02ff2c">
+                    <font>
+                        <Font name="Georgia" size="13.0" />
+                    </font>
+                </Button>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="300.0" layoutY="265.0" prefHeight="144.0" prefWidth="206.0" style="-fx-background-color: #0c1f3d; -fx-background-radius: 3 3 3 3;">
+            <children>
+                <ImageView fitHeight="89.0" fitWidth="198.0" layoutX="4.0" layoutY="5.0" pickOnBounds="true">
+                    <image>
+                        <Image url="@12.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="6.0" layoutY="98.0" prefHeight="20.0" prefWidth="100.0" text="Tetris" textFill="#fafafa">
+                    <font>
+                        <Font name="Bauhaus 93" size="17.0" />
+                    </font>
+                </Label>
+                <ImageView fitHeight="17.0" fitWidth="91.0" layoutX="4.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@images__3_-removebg-preview.png" />
+                    </image>
+                </ImageView>
+                <Button layoutX="140.0" layoutY="113.0" mnemonicParsing="false" onAction="#TetrisGame" style="-fx-background-color: #8d7e9c;" text="P L A Y" textFill="#02ff2c">
+                    <font>
+                        <Font name="Georgia" size="13.0" />
+                    </font>
+                </Button>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="300.0" layoutY="461.0" prefHeight="144.0" prefWidth="206.0" style="-fx-background-color: #0c1f3d; -fx-background-radius: 3 3 3 3;">
+            <children>
+                <ImageView fitHeight="89.0" fitWidth="198.0" layoutX="4.0" layoutY="5.0" pickOnBounds="true">
+                    <image>
+                        <Image url="@download%20(2).png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="6.0" layoutY="98.0" prefHeight="20.0" prefWidth="100.0" text="Ping Pong" textFill="#fafafa">
+                    <font>
+                        <Font name="Bauhaus 93" size="17.0" />
+                    </font>
+                </Label>
+                <ImageView fitHeight="17.0" fitWidth="91.0" layoutX="4.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@images__3_-removebg-preview.png" />
+                    </image>
+                </ImageView>
+                <Button layoutX="140.0" layoutY="113.0" mnemonicParsing="false" onAction="#PingPongGame" style="-fx-background-color: #8d7e9c;" text="P L A Y" textFill="#02ff2c">
+                    <font>
+                        <Font name="Georgia" size="13.0" />
+                    </font>
+                </Button>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="517.0" layoutY="265.0" prefHeight="144.0" prefWidth="206.0" style="-fx-background-color: #0c1f3d; -fx-background-radius: 3 3 3 3;">
+            <children>
+                <ImageView fitHeight="89.0" fitWidth="198.0" layoutX="4.0" layoutY="5.0" pickOnBounds="true">
+                    <image>
+                        <Image url="@breakout_preview_1.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="6.0" layoutY="98.0" prefHeight="20.0" prefWidth="100.0" text="Break Brick" textFill="#fafafa">
+                    <font>
+                        <Font name="Bauhaus 93" size="17.0" />
+                    </font>
+                </Label>
+                <ImageView fitHeight="17.0" fitWidth="91.0" layoutX="4.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@images__3_-removebg-preview.png" />
+                    </image>
+                </ImageView>
+                <Button layoutX="140.0" layoutY="113.0" mnemonicParsing="false" onAction="#BrickBreakGame" style="-fx-background-color: #8d7e9c;" text="P L A Y" textFill="#02ff2c">
+                    <font>
+                        <Font name="Georgia" size="13.0" />
+                    </font>
+                </Button>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="734.0" layoutY="265.0" prefHeight="144.0" prefWidth="206.0" style="-fx-background-color: #0c1f3d; -fx-background-radius: 3 3 3 3;">
+            <children>
+                <ImageView fitHeight="89.0" fitWidth="198.0" layoutX="4.0" layoutY="5.0" pickOnBounds="true">
+                    <image>
+                        <Image url="@13.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="6.0" layoutY="98.0" prefHeight="20.0" prefWidth="100.0" text="Packman" textFill="#fafafa">
+                    <font>
+                        <Font name="Bauhaus 93" size="17.0" />
+                    </font>
+                </Label>
+                <ImageView fitHeight="17.0" fitWidth="91.0" layoutX="4.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@images__3_-removebg-preview.png" />
+                    </image>
+                </ImageView>
+                <Button layoutX="140.0" layoutY="113.0" mnemonicParsing="false" onAction="#PackManGame" style="-fx-background-color: #8d7e9c;" text="P L A Y" textFill="#02ff2c">
+                    <font>
+                        <Font name="Georgia" size="13.0" />
+                    </font>
+                </Button>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="517.0" layoutY="461.0" prefHeight="144.0" prefWidth="206.0" style="-fx-background-color: #0c1f3d; -fx-background-radius: 3 3 3 3;">
+            <children>
+                <ImageView fitHeight="89.0" fitWidth="198.0" layoutX="4.0" layoutY="5.0" pickOnBounds="true">
+                    <image>
+                        <Image url="@flappy-bird-scaled.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="6.0" layoutY="98.0" prefHeight="20.0" prefWidth="100.0" text="Flappy Bird" textFill="#fafafa">
+                    <font>
+                        <Font name="Bauhaus 93" size="17.0" />
+                    </font>
+                </Label>
+                <ImageView fitHeight="17.0" fitWidth="91.0" layoutX="4.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@images__3_-removebg-preview.png" />
+                    </image>
+                </ImageView>
+                <Button layoutX="140.0" layoutY="113.0" mnemonicParsing="false" onAction="#FlappyBirdGame" style="-fx-background-color: #8d7e9c;" text="P L A Y" textFill="#02ff2c">
+                    <font>
+                        <Font name="Georgia" size="13.0" />
+                    </font>
+                </Button>
+            </children>
+        </AnchorPane>
+        <AnchorPane layoutX="734.0" layoutY="461.0" prefHeight="144.0" prefWidth="206.0" style="-fx-background-color: #0c1f3d; -fx-background-radius: 3 3 3 3;">
+            <children>
+                <ImageView fitHeight="89.0" fitWidth="198.0" layoutX="4.0" layoutY="5.0" pickOnBounds="true">
+                    <image>
+                        <Image url="@HD-wallpaper-space-invaders-invaders-sun-earth-space.png" />
+                    </image>
+                </ImageView>
+                <Label layoutX="6.0" layoutY="98.0" prefHeight="20.0" prefWidth="118.0" text="Space Invaders" textFill="#fafafa">
+                    <font>
+                        <Font name="Bauhaus 93" size="17.0" />
+                    </font>
+                </Label>
+                <ImageView fitHeight="17.0" fitWidth="91.0" layoutX="4.0" layoutY="121.0" pickOnBounds="true" preserveRatio="true">
+                    <image>
+                        <Image url="@images__3_-removebg-preview.png" />
+                    </image>
+                </ImageView>
+                <Button layoutX="140.0" layoutY="113.0" mnemonicParsing="false" onAction="#SpaceInvadersGame" style="-fx-background-color: #8d7e9c;" text="P L A Y" textFill="#02ff2c">
+                    <font>
+                        <Font name="Georgia" size="13.0" />
+                    </font>
+                </Button>
+            </children>
+        </AnchorPane>
+        <AnchorPane fx:id="detailPane" layoutX="68.0" layoutY="60.0" prefHeight="560.0" prefWidth="112.0" style="-fx-background-color: #0b1524;">
+            <children>
+                <Button alignment="BASELINE_LEFT" layoutX="-1.0" layoutY="57.0" mnemonicParsing="false" onMouseEntered="#showDetails" onMouseExited="#hideDetails" prefHeight="56.0" prefWidth="112.0" style="-fx-background-color: #0b1524;" text="Recent" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Button>
+                <Button alignment="BASELINE_LEFT" layoutX="-1.0" layoutY="113.0" mnemonicParsing="false" onMouseEntered="#showDetails" onMouseExited="#hideDetails" prefHeight="56.0" prefWidth="112.0" style="-fx-background-color: #0b1524;" text="Trending" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Button>
+                <Button alignment="BASELINE_LEFT" layoutX="-1.0" layoutY="169.0" mnemonicParsing="false" onMouseEntered="#showDetails" onMouseExited="#hideDetails" prefHeight="56.0" prefWidth="112.0" style="-fx-background-color: #0b1524;" text="Updated" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Button>
+                <Button alignment="BASELINE_LEFT" layoutX="-1.0" layoutY="225.0" mnemonicParsing="false" onMouseEntered="#showDetails" onMouseExited="#hideDetails" prefHeight="56.0" prefWidth="112.0" style="-fx-background-color: #0b1524;" text="Multiplayer" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Button>
+                <Button alignment="BASELINE_LEFT" layoutX="-1.0" layoutY="281.0" mnemonicParsing="false" onMouseEntered="#showDetails" onMouseExited="#hideDetails" prefHeight="56.0" prefWidth="112.0" style="-fx-background-color: #0b1524;" text="Puzzle" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Button>
+                <Button alignment="BASELINE_LEFT" layoutX="-1.0" layoutY="337.0" mnemonicParsing="false" onMouseEntered="#showDetails" onMouseExited="#hideDetails" prefHeight="56.0" prefWidth="112.0" style="-fx-background-color: #0b1524;" text="Crazy" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Button>
+                <Button alignment="BASELINE_LEFT" layoutX="-1.0" layoutY="393.0" mnemonicParsing="false" onMouseEntered="#showDetails" onMouseExited="#hideDetails" prefHeight="56.0" prefWidth="112.0" style="-fx-background-color: #0b1524;" text="Minecraft" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Button>
+                <Button alignment="BASELINE_LEFT" layoutX="-1.0" layoutY="449.0" mnemonicParsing="false" onMouseEntered="#showDetails" onMouseExited="#hideDetails" prefHeight="56.0" prefWidth="112.0" style="-fx-background-color: #0b1524;" text="Contact Us" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Button>
+                <Button alignment="BASELINE_LEFT" layoutX="-1.0" layoutY="505.0" mnemonicParsing="false" onAction="#Logout" onMouseEntered="#showDetails" onMouseExited="#hideDetails" prefHeight="52.0" prefWidth="112.0" style="-fx-background-color: #0b1524;" text="Log Out" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Button>
+                <Button alignment="BASELINE_LEFT" layoutX="-1.0" layoutY="1.0" mnemonicParsing="false" onMouseEntered="#showDetails" onMouseExited="#hideDetails" prefHeight="56.0" prefWidth="112.0" style="-fx-background-color: #0b1524;" text="Home" textFill="WHITE">
+                    <font>
+                        <Font name="System Bold" size="15.0" />
+                    </font>
+                </Button>
+            </children></AnchorPane>
+    </children>
+</AnchorPane>
