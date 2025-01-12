@@ -2,19 +2,25 @@ package com.example.spectra_arena;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
 public class SpaceInvaders_Game {
-
     @FXML
     private Canvas gameCanvas;
 
@@ -28,12 +34,15 @@ public class SpaceInvaders_Game {
     private List<Bomb> bombs;
     private List<Shot> shots;
 
+
+
     private boolean gameOver = false;
     private int score = 0;
     private final Random rand = new Random();
 
     public void initialize() {
         gc = gameCanvas.getGraphicsContext2D();
+
         setupGame();
 
         timeline = new Timeline(new KeyFrame(Duration.millis(20), e -> gameLoop()));
@@ -147,19 +156,30 @@ public class SpaceInvaders_Game {
 
 
     }
+    @FXML
+    private void GoBack(ActionEvent e) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(START_PROJECT.class.getResource("F_Dashboard.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
 }
 
-class Rocket {
+
+ class Rocket {
     int x, y, size;
     private boolean exploding = false;
     private boolean movingLeft = false;
     private boolean movingRight = false;
     private final int speed = 7;
+    private Image rocketImage;
 
     public Rocket(int x, int y, int size) {
         this.x = x;
         this.y = y;
         this.size = size;
+        this.rocketImage = new Image(getClass().getResourceAsStream("/com/example/spectra_arena/rocket.png"));
     }
 
     public void update() {
@@ -176,8 +196,7 @@ class Rocket {
     }
 
     public void draw(GraphicsContext gc) {
-        gc.setFill(Color.BLUE);
-        gc.fillRect(x, y, size, size);
+        gc.drawImage(rocketImage, x, y, size, size);
     }
 
     public Shot shoot() {
@@ -193,7 +212,6 @@ class Rocket {
                 y < bomb.y + bomb.size && y + size > bomb.y;
     }
 
-    // Setter methods to toggle movement state
     public void setMovingLeft(boolean movingLeft) {
         this.movingLeft = movingLeft;
     }
@@ -255,4 +273,6 @@ class Shot {
         return x < bomb.x + bomb.size && x + width > bomb.x &&
                 y < bomb.y + bomb.size && y + height > bomb.y;
     }
+
+
 }
