@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.*?>
+
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spectra_arena.SpaceInvader_DashboardController">
+    <Label text="Space Invaders" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+    <Button text="Start Game" onAction="#startGame" />
+    <Button text="Settings" onAction="#openSettings" />
+    <Button text="Best Score" onAction="#viewBestScore" />
+    <Button text="Quit" onAction="#quitGame" />
+</VBox>

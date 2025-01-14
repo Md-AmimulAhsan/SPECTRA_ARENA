@@ -1,5 +1,4 @@
 package com.example.spectra_arena;
-
 import javafx.animation.KeyFrame;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
@@ -15,6 +14,8 @@ import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
+
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,19 +30,21 @@ public class SpaceInvaders_Game {
 
     private GraphicsContext gc;
     private Timeline timeline;
-
+  
     private Rocket player;
     private List<Bomb> bombs;
     private List<Shot> shots;
 
-
+    private Image backgroundImage;
 
     private boolean gameOver = false;
+    private boolean paused = false;
     private int score = 0;
     private final Random rand = new Random();
 
     public void initialize() {
         gc = gameCanvas.getGraphicsContext2D();
+        backgroundImage = new Image(getClass().getResourceAsStream("/com/example/spectra_arena/gameBackground.png"));
 
         setupGame();
 
@@ -49,8 +52,7 @@ public class SpaceInvaders_Game {
         timeline.setCycleCount(Timeline.INDEFINITE);
         timeline.play();
 
-        //  key listeners for keyboard-based movement and shooting
-        gameCanvas.setFocusTraversable(true); //  the canvas is focusable
+        gameCanvas.setFocusTraversable(true);
         gameCanvas.setOnKeyPressed(this::onKeyPressed);
         gameCanvas.setOnKeyReleased(this::onKeyReleased);
     }
@@ -62,7 +64,12 @@ public class SpaceInvaders_Game {
     }
 
     private void gameLoop() {
+        if (paused) {
+            return;
+        }
+
         gc.clearRect(0, 0, WIDTH, HEIGHT);
+        gc.drawImage(backgroundImage, 0, 0, WIDTH, HEIGHT);
 
         if (gameOver) {
             gc.setFill(Color.RED);
@@ -70,23 +77,20 @@ public class SpaceInvaders_Game {
             return;
         }
 
-        // Player mechanics
         player.update();
         player.draw(gc);
 
-        // Shots mechanics
         for (int i = shots.size() - 1; i >= 0; i--) {
             Shot shot = shots.get(i);
             shot.update();
 
-            // Collision detection between a shot and bombs
             for (int j = bombs.size() - 1; j >= 0; j--) {
                 Bomb bomb = bombs.get(j);
                 if (shot.collidesWith(bomb)) {
-                    bombs.remove(j);
-                    shots.remove(i); // Remove the shot
+                    bomb.breakBomb();
+                    shots.remove(i);
                     score++;
-                    break; // Exit the loop to avoid ConcurrentModificationException
+                    break;
                 }
             }
 
@@ -97,34 +101,59 @@ public class SpaceInvaders_Game {
             }
         }
 
-        // Bomb mechanics
         for (int i = bombs.size() - 1; i >= 0; i--) {
             Bomb bomb = bombs.get(i);
-
             bomb.update();
             if (bomb.collidesWith(player)) {
                 player.explode();
                 gameOver = true;
             }
 
-            if (bomb.isOutOfBounds()) {
+            if (bomb.isOutOfBounds() || bomb.isToRemove()) {
                 bombs.remove(i);
             } else {
                 bomb.draw(gc);
             }
         }
 
-        // Generate new bombs randomly
         if (rand.nextInt(100) < 2) {
             bombs.add(new Bomb(rand.nextInt(WIDTH - 60), 0, 60));
         }
 
-        // Display the score
         gc.setFill(Color.WHITE);
         gc.fillText("Score: " + score, 10, 20);
     }
 
-    // Handle key press for movement and shooting
+    @FXML
+    private void GoBack(ActionEvent e) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(START_PROJECT.class.getResource("F_Dashboard.fxml"));
+        Scene scene = new Scene(fxmlLoader.load());
+        Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    @FXML
+    private void restartGame(ActionEvent e) {
+        gameOver = false;
+        score = 0;
+        setupGame();
+        timeline.playFromStart();
+        gameCanvas.setFocusTraversable(true);
+        gameCanvas.setOnKeyPressed(this::onKeyPressed);
+        gameCanvas.setOnKeyReleased(this::onKeyReleased);
+    }
+
+    @FXML
+    private void pauseGame() {
+        paused = true;
+    }
+
+    @FXML
+    private void resumeGame() {
+        paused = false;
+    }
+
     private void onKeyPressed(KeyEvent event) {
         switch (event.getCode()) {
             case LEFT:
@@ -136,12 +165,18 @@ public class SpaceInvaders_Game {
                 player.setMovingRight(true);
                 break;
             case SPACE:
-                shots.add(player.shoot()); // Shoot using Spacebar
+                shots.add(player.shoot());
+                break;
+            case P:
+                if (paused) {
+                    resumeGame();
+                } else {
+                    pauseGame();
+                }
                 break;
         }
     }
 
-    // Handle key release to stop movement
     private void onKeyReleased(KeyEvent event) {
         switch (event.getCode()) {
             case LEFT:
@@ -153,16 +188,6 @@ public class SpaceInvaders_Game {
                 player.setMovingRight(false);
                 break;
         }
-
-
-    }
-    @FXML
-    private void GoBack(ActionEvent e) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(START_PROJECT.class.getResource("F_Dashboard.fxml"));
-        Scene scene = new Scene(fxmlLoader.load());
-        Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
     }
 }
 
@@ -175,12 +200,19 @@ public class SpaceInvaders_Game {
     private final int speed = 7;
     private Image rocketImage;
 
-    public Rocket(int x, int y, int size) {
+
+
+
+     public Rocket(int x, int y, int size) {
         this.x = x;
         this.y = y;
         this.size = size;
+
+
         this.rocketImage = new Image(getClass().getResourceAsStream("/com/example/spectra_arena/rocket.png"));
+
     }
+
 
     public void update() {
         if (exploding) {
@@ -220,22 +252,34 @@ public class SpaceInvaders_Game {
         this.movingRight = movingRight;
     }
 }
+
 class Bomb {
-    int x, y, size, speed = 3;
+    int x, y, size, speed = 2;
+    private Image alienImage;
+    private Image brokenImage;
+    private boolean isBroken = false;
+    private boolean toRemove = false;
 
     public Bomb(int x, int y, int size) {
         this.x = x;
         this.y = y;
         this.size = size;
+        this.alienImage = new Image(getClass().getResourceAsStream("/com/example/spectra_arena/alien.png"));
+        this.brokenImage = new Image(getClass().getResourceAsStream("/com/example/spectra_arena/broken.png"));
     }
 
     public void update() {
-        y += speed;
+        if (!isBroken) {
+            y += speed;
+        }
     }
 
     public void draw(GraphicsContext gc) {
-        gc.setFill(Color.RED);
-        gc.fillOval(x, y, size, size);
+        if (isBroken) {
+            gc.drawImage(brokenImage, x, y, size, size);
+        } else {
+            gc.drawImage(alienImage, x, y, size, size);
+        }
     }
 
     public boolean isOutOfBounds() {
@@ -246,7 +290,19 @@ class Bomb {
         return rocket.x < x + size && rocket.x + rocket.size > x &&
                 rocket.y < y + size && rocket.y + rocket.size > y;
     }
+
+    public void breakBomb() {
+        isBroken = true;
+        Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(0.5), e -> toRemove = true));
+        timeline.setCycleCount(1);
+        timeline.play();
+    }
+
+    public boolean isToRemove() {
+        return toRemove;
+    }
 }
+
 class Shot {
     int x, y, speed = 10;
     final int width = 4, height = 10;

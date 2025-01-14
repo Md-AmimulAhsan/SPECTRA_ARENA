@@ -115,7 +115,7 @@ public class Dashboard {
         FXMLLoader fxmlLoader = new FXMLLoader(START_PROJECT.class.getResource("F_SpaceInvaders_Game.fxml"));
        scene = new Scene(fxmlLoader.load());
         stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        stage.setTitle("Tetris Game");
+        stage.setTitle("Space Invaders Game");
         stage.setScene(scene);
         stage.show();
     }
