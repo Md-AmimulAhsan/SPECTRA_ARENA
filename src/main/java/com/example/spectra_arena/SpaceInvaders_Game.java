@@ -17,7 +17,7 @@ import javafx.util.Duration;
 import javafx.scene.media.AudioClip;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
-
+// new
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -50,7 +50,6 @@ public class SpaceInvaders_Game {
     private boolean paused = false;
     private int score = 0;
     private final Random rand = new Random();
-
     public void initialize() {
         gc = gameCanvas.getGraphicsContext2D();
         backgroundImage = new Image(getClass().getResourceAsStream("/com/example/spectra_arena/gameBackground.png"));
