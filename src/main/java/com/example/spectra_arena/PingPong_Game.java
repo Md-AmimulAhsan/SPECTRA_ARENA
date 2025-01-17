@@ -9,6 +9,7 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
@@ -21,9 +22,6 @@ import java.io.IOException;
 import java.util.Random;
 
 public class PingPong_Game {
-
-    Stage stage;
-    Scene scene;
 
     @FXML
     private Canvas gameCanvas;
@@ -52,6 +50,9 @@ public class PingPong_Game {
     private Label wins2;
     @FXML
     private Label BestDisplay;
+
+    @FXML
+    private Button Back;
 
 
 
@@ -106,6 +107,7 @@ public class PingPong_Game {
         gameCanvas.setOnMouseClicked(e -> gameStarted = true);
 
         gameCanvas.requestFocus();
+        Back.setFocusTraversable(false);
         tl.play();
     }
 
@@ -327,13 +329,16 @@ public class PingPong_Game {
         gameCanvas.setOnMouseClicked(e -> gameStarted = true);
     }
 
+    Stage stage15;
+    Scene scene15;
+
     @FXML
     private void GoBack(ActionEvent e) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(START_PROJECT.class.getResource("F_Dashboard.fxml"));
-        scene = new Scene(fxmlLoader.load());
-        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        scene15 = new Scene(fxmlLoader.load());
+        stage15 = (Stage)((Node)e.getSource()).getScene().getWindow();
+        stage15.setScene(scene15);
+        stage15.show();
     }
 
 }

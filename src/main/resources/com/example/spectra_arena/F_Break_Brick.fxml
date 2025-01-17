@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="600.0" style="-fx-background-color: #d1cbba;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spectra_arena.Break_Brick">
+    <children>
+        <Pane fx:id="gamePaneZZ" prefHeight="500.0" prefWidth="453.0" style="-fx-background-color: black;" />
+        <Label fx:id="gameOverLabel" layoutX="463.0" layoutY="236.0" prefHeight="30.0" prefWidth="132.0" text="Game Over !!!" textFill="#fa0606">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Label>
+        <Label fx:id="scoreLabel" layoutX="462.0" layoutY="95.0" text="Score:" textFill="#2d77c7">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Label>
+        <Label fx:id="chancesLabel" layoutX="462.0" layoutY="49.0" text="Chances:" textFill="#f20995">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Label>
+        <Label fx:id="bestScore" layoutX="462.0" layoutY="140.0" text="Best:" textFill="#9224c9">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Label>
+        <Button fx:id="restart" layoutX="493.0" layoutY="274.0" mnemonicParsing="false" onAction="#restartGame" style="-fx-background-color: Green;" text="Restart" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="15.0" />
+            </font>
+        </Button>
+        <Button fx:id="GoBackB" layoutX="483.0" layoutY="368.0" mnemonicParsing="false" onAction="#GoBack" prefHeight="26.0" prefWidth="92.0" style="-fx-background-color: #6cd4c1;" text="Go Back">
+            <font>
+                <Font size="15.0" />
+            </font>
+        </Button>
+    </children>
+</AnchorPane>

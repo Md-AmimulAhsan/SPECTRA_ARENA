@@ -3,39 +3,101 @@
 <?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="598.0" prefWidth="739.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spectra_arena.Snake_Game">
+<AnchorPane fx:id="anchor" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="595.0" prefWidth="739.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spectra_arena.Snake_Game">
     <children>
-        <Button fx:id="pauseButton" layoutX="622.0" layoutY="191.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="92.0" style="-fx-background-color: Yellow;" text="Pause">
+        <Button fx:id="pauseButton" layoutX="673.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="66.0" style="-fx-background-color: black;">
             <font>
                 <Font name="System Bold" size="15.0" />
             </font></Button>
-        <Label fx:id="scoreLabel" layoutX="610.0" layoutY="56.0" prefHeight="26.0" prefWidth="92.0" text="Score :" textFill="#ef039c">
+        <Label fx:id="scoreLabel" layoutX="90.0" layoutY="11.0" prefHeight="31.0" prefWidth="165.0" text="Score :" textFill="#ef039c">
             <font>
-                <Font name="System Bold" size="20.0" />
+                <Font name="Forte" size="27.0" />
             </font>
         </Label>
-        <Canvas fx:id="canvas" height="600.0" width="600.0" />
-        <Button fx:id="restartButton" layoutX="622.0" layoutY="241.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="92.0" style="-fx-background-color: #a7bf1f;" text="Restart" textFill="WHITE">
+        <Canvas fx:id="canvas" height="440.0" layoutX="50.0" layoutY="101.0" width="640.0" />
+        <Button fx:id="restartButton" layoutX="337.0" layoutY="349.0" mnemonicParsing="false" prefHeight="62.0" prefWidth="66.0" style="-fx-background-color: #b4d95d;" textFill="WHITE">
             <font>
                 <Font name="System Bold" size="15.0" />
             </font></Button>
-        <Label fx:id="bestScoreLabel" layoutX="610.0" layoutY="96.0" prefHeight="26.0" prefWidth="92.0" text="Best :" textFill="#ae07f2">
+        <Label fx:id="bestScoreLabel" layoutX="497.0" layoutY="11.0" prefHeight="31.0" prefWidth="165.0" text="Best :" textFill="#ae07f2">
             <font>
-                <Font name="System Bold" size="20.0" />
+                <Font name="Forte" size="27.0" />
             </font>
         </Label>
-        <Label fx:id="over" layoutX="189.0" layoutY="273.0" prefHeight="52.0" prefWidth="222.0" textFill="RED">
+        <Label fx:id="over" layoutX="208.0" layoutY="246.0" prefHeight="103.0" prefWidth="322.0" textFill="#d9074d">
             <font>
-                <Font name="System Bold" size="35.0" />
+                <Font name="System Bold" size="50.0" />
             </font>
         </Label>
-      <Button layoutX="622.0" layoutY="552.0" mnemonicParsing="false" onAction="#GoBack" prefHeight="26.0" prefWidth="92.0" style="-fx-background-color: #6cd4c1;" text="Go Back">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-      </Button>
+        <Button fx:id="restartButton1" mnemonicParsing="false" onAction="#GoBack" prefHeight="54.0" prefWidth="66.0" style="-fx-background-color: black;" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="15.0" />
+            </font>
+        </Button>
+        <ImageView fitHeight="54.0" fitWidth="66.0" mouseTransparent="true" pickOnBounds="true">
+            <image>
+                <Image url="@e1bb7f40017e01d335fc1d5174ef9dbf-removebg-preview.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="restart" fitHeight="62.0" fitWidth="66.0" layoutX="337.0" layoutY="349.0" mouseTransparent="true" pickOnBounds="true">
+            <image>
+                <Image url="@79-791285_flat-restart-icon-boton-messenger-png-transparent-png-removebg-preview.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="pause" fitHeight="54.0" fitWidth="66.0" layoutX="673.0" mouseTransparent="true" pickOnBounds="true">
+            <image>
+                <Image url="@Pause Button.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="resume" fitHeight="54.0" fitWidth="66.0" layoutX="673.0" mouseTransparent="true" pickOnBounds="true">
+            <image>
+                <Image url="@Resume Button.png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="54.0" fitWidth="739.0" layoutY="47.0" pickOnBounds="true">
+            <image>
+                <Image url="@grass png (2).png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="48.0" fitWidth="739.0" layoutY="541.0" pickOnBounds="true" rotate="180.0">
+            <image>
+                <Image url="@grass png (2).png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="41.0" fitWidth="739.0" layoutY="556.0" pickOnBounds="true">
+            <image>
+                <Image url="@grass png (2).png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="50.0" fitWidth="450.0" layoutX="-200.0" layoutY="296.0" pickOnBounds="true" rotate="90.0">
+            <image>
+                <Image url="@grass png (2).png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="25.0" fitWidth="450.0" layoutX="-187.0" layoutY="304.0" pickOnBounds="true" rotate="-90.0">
+            <image>
+                <Image url="@grass png (2).png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="50.0" fitWidth="450.0" layoutX="490.0" layoutY="301.0" pickOnBounds="true" rotate="-90.0">
+            <image>
+                <Image url="@grass png (2).png" />
+            </image>
+        </ImageView>
+        <ImageView fitHeight="27.0" fitWidth="450.0" layoutX="478.0" layoutY="309.0" pickOnBounds="true" rotate="90.0">
+            <image>
+                <Image url="@grass png (2).png" />
+            </image>
+        </ImageView>
+        <Label fx:id="scoreLabel1" layoutX="286.0" layoutY="1.0" prefHeight="12.0" prefWidth="166.0" text="J U N G L E    S N A K E" textFill="#05ed1d">
+            <font>
+                <Font name="Jokerman" size="15.0" />
+            </font>
+        </Label>
     </children>
 </AnchorPane>

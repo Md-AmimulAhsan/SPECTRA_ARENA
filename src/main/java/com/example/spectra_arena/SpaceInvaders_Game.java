@@ -8,12 +8,15 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
+import javafx.scene.media.AudioClip;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 
 
 import java.io.IOException;
@@ -24,13 +27,19 @@ import java.util.Random;
 public class SpaceInvaders_Game {
     @FXML
     private Canvas gameCanvas;
+    @FXML
+    private Button restart;
 
     private final int WIDTH = 800;
     private final int HEIGHT = 600;
 
     private GraphicsContext gc;
     private Timeline timeline;
-  
+
+    private AudioClip shootSound;
+    private AudioClip explosionSound;
+    private MediaPlayer backgroundMusic;
+
     private Rocket player;
     private List<Bomb> bombs;
     private List<Shot> shots;
@@ -46,6 +55,14 @@ public class SpaceInvaders_Game {
         gc = gameCanvas.getGraphicsContext2D();
         backgroundImage = new Image(getClass().getResourceAsStream("/com/example/spectra_arena/gameBackground.png"));
 
+        // Load sounds
+        shootSound = new AudioClip(getClass().getResource("/com/example/spectra_arena/shoot.wav").toString());
+        explosionSound = new AudioClip(getClass().getResource("/com/example/spectra_arena/explosion.wav").toString());
+        Media backgroundMusicFile = new Media(getClass().getResource("/com/example/spectra_arena/background.mp3").toString());
+        backgroundMusic = new MediaPlayer(backgroundMusicFile);
+        backgroundMusic.setCycleCount(MediaPlayer.INDEFINITE);
+        backgroundMusic.play();
+
         setupGame();
 
         timeline = new Timeline(new KeyFrame(Duration.millis(20), e -> gameLoop()));
@@ -53,6 +70,7 @@ public class SpaceInvaders_Game {
         timeline.play();
 
         gameCanvas.setFocusTraversable(true);
+        restart.setFocusTraversable(false);
         gameCanvas.setOnKeyPressed(this::onKeyPressed);
         gameCanvas.setOnKeyReleased(this::onKeyReleased);
     }
@@ -90,6 +108,7 @@ public class SpaceInvaders_Game {
                     bomb.breakBomb();
                     shots.remove(i);
                     score++;
+                    explosionSound.play();
                     break;
                 }
             }
@@ -107,6 +126,7 @@ public class SpaceInvaders_Game {
             if (bomb.collidesWith(player)) {
                 player.explode();
                 gameOver = true;
+                explosionSound.play();
             }
 
             if (bomb.isOutOfBounds() || bomb.isToRemove()) {
@@ -166,6 +186,7 @@ public class SpaceInvaders_Game {
                 break;
             case SPACE:
                 shots.add(player.shoot());
+                shootSound.play();
                 break;
             case P:
                 if (paused) {
@@ -191,8 +212,7 @@ public class SpaceInvaders_Game {
     }
 }
 
-
- class Rocket {
+class Rocket {
     int x, y, size;
     private boolean exploding = false;
     private boolean movingLeft = false;
@@ -203,7 +223,7 @@ public class SpaceInvaders_Game {
 
 
 
-     public Rocket(int x, int y, int size) {
+    public Rocket(int x, int y, int size) {
         this.x = x;
         this.y = y;
         this.size = size;

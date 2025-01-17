@@ -13,9 +13,6 @@ import java.io.IOException;
 
 public class TicTacToe_Game {
 
-    Stage stage;
-    Scene scene;
-
     private char currentPlayer = 'X';
     private char[][] board = new char[3][3];
 
@@ -26,8 +23,12 @@ public class TicTacToe_Game {
     private Text status;
 
     @FXML
+    private Button Back;
+
+    @FXML
     public void initialize() {
         resetBoard();
+        Back.setFocusTraversable(false);
     }
 
     @FXML
@@ -74,12 +75,15 @@ public class TicTacToe_Game {
         }
     }
 
+    Stage stage14;
+    Scene scene14;
+
     @FXML
     private void GoBack(ActionEvent e) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(START_PROJECT.class.getResource("F_Dashboard.fxml"));
-        scene = new Scene(fxmlLoader.load());
-        stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.show();
+        scene14 = new Scene(fxmlLoader.load());
+        stage14 = (Stage)((Node)e.getSource()).getScene().getWindow();
+        stage14.setScene(scene14);
+        stage14.show();
     }
 }

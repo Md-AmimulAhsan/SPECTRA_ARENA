@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
@@ -10,39 +11,58 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="954.0" style="-fx-background-color: #0b1524;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spectra_arena.Dashboard">
+<AnchorPane fx:id="MainPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="954.0" style="-fx-background-color: #0b1524;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spectra_arena.Dashboard">
     <children>
-        <AnchorPane prefHeight="58.0" prefWidth="953.0" style="-fx-background-color: #0c1f3d;">
+        <AnchorPane fx:id="editPane" prefHeight="58.0" prefWidth="953.0" style="-fx-background-color: #0c1f3d;">
             <children>
-                <Button mnemonicParsing="false" prefHeight="56.0" prefWidth="66.0" style="-fx-background-color: #0c1f3d;" />
-                <ImageView fitHeight="42.0" fitWidth="33.0" layoutX="17.0" layoutY="13.0" pickOnBounds="true" preserveRatio="true">
+                <ImageView fitHeight="48.0" fitWidth="60.0" layoutX="5.0" layoutY="6.0" mouseTransparent="true" pickOnBounds="true">
                     <image>
-                        <Image url="@png-clipart-three-gray-lines-illustration-hamburger-menu-icon-icons-logos-emojis-menu-icons-thumbnail-removebg-preview.png" />
+                        <Image url="@photo-fire-eagle-logo-ai-render_646510-4544-removebg-preview.png" />
                     </image>
                 </ImageView>
                 <Button layoutX="66.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="54.0" style="-fx-background-color: #0c1f3d;" />
                 <Button layoutX="123.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="54.0" style="-fx-background-color: #0c1f3d;" />
-                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="78.0" layoutY="15.0" pickOnBounds="true">
+                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="78.0" layoutY="15.0" mouseTransparent="true" pickOnBounds="true">
                     <image>
                         <Image url="@e1bb7f40017e01d335fc1d5174ef9dbf-removebg-preview.png" />
                     </image>
                 </ImageView>
-                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="135.0" layoutY="15.0" pickOnBounds="true" rotate="180.0">
+                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="135.0" layoutY="15.0" mouseTransparent="true" pickOnBounds="true" rotate="180.0">
                     <image>
                         <Image url="@e1bb7f40017e01d335fc1d5174ef9dbf-removebg-preview.png" />
                     </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                 </ImageView>
                 <TextField layoutX="253.0" layoutY="9.0" prefHeight="40.0" prefWidth="446.0" promptText="Search" style="-fx-background-radius: 50 50 50 50; -fx-background-color: #1c345c; -fx-text-fill: #FAF9F6;">
                     <font>
                         <Font name="System Bold" size="15.0" />
                     </font>
+               <cursor>
+                  <Cursor fx:constant="TEXT" />
+               </cursor>
                 </TextField>
                 <Button layoutX="559.0" layoutY="9.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="139.0" style="-fx-background-radius: 0 50 50 0; -fx-background-color: #1c345c;" />
-                <ImageView fitHeight="24.0" fitWidth="23.0" layoutX="667.0" layoutY="18.0" pickOnBounds="true">
+                <ImageView fitHeight="24.0" fitWidth="23.0" layoutX="667.0" layoutY="18.0" mouseTransparent="true" pickOnBounds="true">
                     <image>
                         <Image url="@250-2506929_search-search-icon-png-gray-removebg-preview.png" />
                     </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                 </ImageView>
+            <Button layoutX="896.0" layoutY="10.0" mnemonicParsing="false" onAction="#editAccount" prefHeight="40.0" prefWidth="43.0" style="-fx-background-radius: 50%; -fx-background-color: #0c1f3d;" />
+            <ImageView fx:id="profileImage" fitHeight="40.0" fitWidth="43.0" layoutX="896.0" layoutY="9.0" mouseTransparent="true" pickOnBounds="true">
+               <image>
+                  <Image url="@8345328-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="724.0" layoutY="19.0" text="User Name Appear Here" textFill="#f2e8e8">
+               <font>
+                  <Font name="System Bold" size="15.0" />
+               </font>
+            </Label>
             </children>
         </AnchorPane>
         <AnchorPane fx:id="icons" layoutY="66.0" prefHeight="546.0" prefWidth="68.0" style="-fx-background-color: #0b1524;">
@@ -57,55 +77,85 @@
                 <Button layoutY="392.0" mnemonicParsing="false" onMouseEntered="#showDetails" onMouseExited="#hideDetails" prefHeight="56.0" prefWidth="66.0" style="-fx-background-color: #0b1524;" />
                 <Button layoutY="448.0" mnemonicParsing="false" onMouseEntered="#showDetails" onMouseExited="#hideDetails" prefHeight="56.0" prefWidth="66.0" style="-fx-background-color: #0b1524;" />
                 <Button layoutY="504.0" mnemonicParsing="false" onAction="#Logout" onMouseEntered="#showDetails" onMouseExited="#hideDetails" prefHeight="48.0" prefWidth="66.0" style="-fx-background-color: #0b1524;" />
-                <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="17.0" layoutY="12.0" onMouseEntered="#showDetails" onMouseExited="#hideDetails" pickOnBounds="true">
+                <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="17.0" layoutY="12.0" mouseTransparent="true" onMouseEntered="#showDetails" onMouseExited="#hideDetails" pickOnBounds="true">
                     <image>
                         <Image url="@Home.png" />
                     </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                 </ImageView>
-                <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="17.0" layoutY="68.0" onMouseEntered="#showDetails" onMouseExited="#hideDetails" pickOnBounds="true">
+                <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="17.0" layoutY="68.0" mouseTransparent="true" onMouseEntered="#showDetails" onMouseExited="#hideDetails" pickOnBounds="true">
                     <image>
                         <Image url="@Recent.png" />
                     </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                 </ImageView>
-                <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="17.0" layoutY="124.0" onMouseEntered="#showDetails" onMouseExited="#hideDetails" pickOnBounds="true">
+                <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="17.0" layoutY="124.0" mouseTransparent="true" onMouseEntered="#showDetails" onMouseExited="#hideDetails" pickOnBounds="true">
                     <image>
                         <Image url="@Trending.png" />
                     </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                 </ImageView>
-                <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="17.0" layoutY="180.0" onMouseEntered="#showDetails" onMouseExited="#hideDetails" pickOnBounds="true">
+                <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="17.0" layoutY="180.0" mouseTransparent="true" onMouseEntered="#showDetails" onMouseExited="#hideDetails" pickOnBounds="true">
                     <image>
                         <Image url="@Updated.png" />
                     </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                 </ImageView>
-                <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="17.0" layoutY="236.0" onMouseEntered="#showDetails" onMouseExited="#hideDetails" pickOnBounds="true">
+                <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="17.0" layoutY="236.0" mouseTransparent="true" onMouseEntered="#showDetails" onMouseExited="#hideDetails" pickOnBounds="true">
                     <image>
                         <Image url="@Multiplayer.png" />
                     </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                 </ImageView>
-                <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="17.0" layoutY="292.0" onMouseEntered="#showDetails" onMouseExited="#hideDetails" pickOnBounds="true">
+                <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="17.0" layoutY="292.0" mouseTransparent="true" onMouseEntered="#showDetails" onMouseExited="#hideDetails" pickOnBounds="true">
                     <image>
                         <Image url="@Puzzle.png" />
                     </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                 </ImageView>
-                <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="17.0" layoutY="348.0" onMouseEntered="#showDetails" onMouseExited="#hideDetails" pickOnBounds="true">
+                <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="17.0" layoutY="348.0" mouseTransparent="true" onMouseEntered="#showDetails" onMouseExited="#hideDetails" pickOnBounds="true">
                     <image>
                         <Image url="@Casual.png" />
                     </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                 </ImageView>
-                <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="17.0" layoutY="404.0" onMouseEntered="#showDetails" onMouseExited="#hideDetails" pickOnBounds="true">
+                <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="17.0" layoutY="404.0" mouseTransparent="true" onMouseEntered="#showDetails" onMouseExited="#hideDetails" pickOnBounds="true">
                     <image>
                         <Image url="@Minecraft.png" />
                     </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                 </ImageView>
-                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="19.0" layoutY="517.0" onMouseEntered="#showDetails" onMouseExited="#hideDetails" pickOnBounds="true">
+                <ImageView fitHeight="30.0" fitWidth="30.0" layoutX="19.0" layoutY="517.0" mouseTransparent="true" onMouseEntered="#showDetails" onMouseExited="#hideDetails" pickOnBounds="true">
                     <image>
                         <Image url="@1053210-removebg-preview.png" />
                     </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                 </ImageView>
-                <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="17.0" layoutY="459.0" onMouseEntered="#showDetails" onMouseExited="#hideDetails" pickOnBounds="true">
+                <ImageView fitHeight="33.0" fitWidth="33.0" layoutX="17.0" layoutY="459.0" mouseTransparent="true" onMouseEntered="#showDetails" onMouseExited="#hideDetails" pickOnBounds="true">
                     <image>
                         <Image url="@icone-messager-jaune-removebg-preview.png" />
                     </image>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
                 </ImageView>
                 <Line fx:id="sp" endX="108.40000915527344" endY="-219.0" layoutX="-43.0" layoutY="213.0" startX="109.40000915527344" startY="339.0" stroke="#9c9a95" />
             </children>
@@ -145,7 +195,7 @@
             <children>
                 <ImageView fitHeight="89.0" fitWidth="198.0" layoutX="4.0" layoutY="5.0" pickOnBounds="true">
                     <image>
-                        <Image url="@download%20(1)%20(1).png" />
+                        <Image url="@download (1) (1).png" />
                     </image>
                 </ImageView>
                 <Label layoutX="6.0" layoutY="98.0" prefHeight="20.0" prefWidth="100.0" text="Jungle Snake" textFill="#fafafa">
@@ -211,7 +261,7 @@
                         <Image url="@images__3_-removebg-preview.png" />
                     </image>
                 </ImageView>
-                <Button layoutX="140.0" layoutY="113.0" mnemonicParsing="false" onAction="#TetrisGame" style="-fx-background-color: #8d7e9c;" text="P L A Y" textFill="#02ff2c">
+                <Button layoutX="140.0" layoutY="113.0" mnemonicParsing="false" onAction="#Tetris" style="-fx-background-color: #8d7e9c;" text="P L A Y" textFill="#02ff2c">
                     <font>
                         <Font name="Georgia" size="13.0" />
                     </font>
@@ -222,7 +272,7 @@
             <children>
                 <ImageView fitHeight="89.0" fitWidth="198.0" layoutX="4.0" layoutY="5.0" pickOnBounds="true">
                     <image>
-                        <Image url="@download%20(2).png" />
+                        <Image url="@download (2).png" />
                     </image>
                 </ImageView>
                 <Label layoutX="6.0" layoutY="98.0" prefHeight="20.0" prefWidth="100.0" text="Ping Pong" textFill="#fafafa">
@@ -391,5 +441,31 @@
                     </font>
                 </Button>
             </children></AnchorPane>
+      <AnchorPane fx:id="editProfile" layoutX="302.0" layoutY="135.0" prefHeight="363.0" prefWidth="350.0" style="-fx-background-color: white; -fx-background-radius: 10 10 10 10;">
+         <children>
+            <Button layoutX="138.0" layoutY="23.0" mnemonicParsing="false" prefHeight="71.0" prefWidth="73.0" style="-fx-background-radius: 50%; -fx-background-color: #0c1f3d;" />
+            <Label layoutX="61.0" layoutY="108.0" text="User Name Appear Here">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="changeImage" fitHeight="71.0" fitWidth="73.0" layoutX="138.0" layoutY="23.0" pickOnBounds="true" style="-fx-border-radius: 50%;">
+               <image>
+                  <Image url="@8345328-removebg-preview.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="212.0" layoutY="68.0" mnemonicParsing="false" onAction="#chooseProfileImage" prefHeight="17.0" prefWidth="21.0" style="-fx-background-radius: 50%; -fx-background-color: white;" />
+            <ImageView fitHeight="17.0" fitWidth="23.0" layoutX="212.0" layoutY="72.0" mouseTransparent="true" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@edit-profile-2355451-1983078-removebg-preview (2).png" />
+               </image>
+            </ImageView>
+            <Button layoutX="127.0" layoutY="323.0" mnemonicParsing="false" onAction="#saveChanges" style="-fx-background-color: Grey;" text="Save Chnages">
+               <font>
+                  <Font name="Arial Unicode MS" size="12.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
     </children>
 </AnchorPane>

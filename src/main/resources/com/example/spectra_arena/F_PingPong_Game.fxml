@@ -91,7 +91,7 @@
                 <Font name="System Bold" size="30.0" />
             </font>
         </Label>
-      <Button layoutX="813.0" layoutY="542.0" mnemonicParsing="false" onAction="#GoBack" style="-fx-background-color: #6cd4c1;" text="Go Back">
+      <Button fx:id="Back" layoutX="813.0" layoutY="542.0" mnemonicParsing="false" onAction="#GoBack" style="-fx-background-color: #6cd4c1;" text="Go Back">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>

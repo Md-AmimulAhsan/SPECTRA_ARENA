@@ -20,8 +20,8 @@ import java.util.Scanner;
 
 public class Login_Page {
 
-    Stage stage;
-    Scene scene;
+    Stage stage1;
+    Scene scene1;
 
     //For violet-SignUP:
     @FXML
@@ -397,15 +397,31 @@ public class Login_Page {
                         String pa = credentials[2].trim(); // PASSWORD
 
                         if (username.equals(us) && pass.equals(pa)) {
-                            JOptionPane.showMessageDialog(null, "Sign In Successful !!");
+                            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                            alert.setTitle("Successful");
+                            alert.setHeaderText(null); // No header text
+                            alert.setContentText("Login Succesfully Done");
+
+                            DialogPane dialogPane = alert.getDialogPane();
+
+                            // Add CSS for center alignment and custom font
+                            dialogPane.setStyle(
+                                    "-fx-font-family: 'Times New Roman';" +   // Set font family
+                                            "-fx-font-size: 20px;" +        // Set font size
+                                            "-fx-alignment: center;"+
+                                            "-fx-background-color: #49e661" // Center align the text
+                            );
+
+                            // Show the alert
+                            alert.showAndWait();
                             found = true;
 
                             FXMLLoader fxmlLoader = new FXMLLoader(START_PROJECT.class.getResource("F_Dashboard.fxml"));
-                            scene = new Scene(fxmlLoader.load());
-                            stage = (Stage)((Node)e.getSource()).getScene().getWindow();
-                            stage.setTitle("Welcome To Spectra Arena");
-                            stage.setScene(scene);
-                            stage.show();
+                            scene1 = new Scene(fxmlLoader.load());
+                            stage1 = (Stage)((Node)e.getSource()).getScene().getWindow();
+                            stage1.setTitle("Welcome To Spectra Arena");
+                            stage1.setScene(scene1);
+                            stage1.show();
 
                             break;
                         }
@@ -413,7 +429,23 @@ public class Login_Page {
                 }
 
                 if (!found) {
-                    JOptionPane.showMessageDialog(null, "Invalid Username or Password");
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setTitle("Error");
+                    alert.setHeaderText(null); // No header text
+                    alert.setContentText("Invalid Username or Password");
+
+                    DialogPane dialogPane = alert.getDialogPane();
+
+                    // Add CSS for center alignment and custom font
+                    dialogPane.setStyle(
+                            "-fx-font-family: 'Times New Roman';" +   // Set font family
+                                    "-fx-font-size: 20px;" +        // Set font size
+                                    "-fx-alignment: center;"+       // Center align the text
+                                    "-fx-background-color: #e64956"
+                    );
+
+                    // Show the alert
+                    alert.showAndWait();
                 }
 
                 sc.close();
