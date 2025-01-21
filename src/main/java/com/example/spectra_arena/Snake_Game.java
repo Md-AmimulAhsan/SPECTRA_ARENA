@@ -91,8 +91,8 @@ public class Snake_Game {
         resume.setVisible(false);
         restart.setVisible(false);
 
-        appleImage = new Image("D:\\Coding Files\\Codes\\Snake_Game\\src\\main\\resources\\com\\example\\snake_game\\Google-Noto-Emoji-Food-Drink-32349-red-apple.1024-removebg-preview.png");
-        chickenImage = new Image("D:\\Coding Files\\Codes\\Snake_Game\\src\\main\\resources\\com\\example\\snake_game\\0edf6d07d6f1e2ed60546fb63e36aa73__2_-removebg-preview.png");
+        appleImage = new Image(getClass().getResourceAsStream("/com/example/spectra_arena/Google-Noto-Emoji-Food-Drink-32349-red-apple.1024-removebg-preview.png"));
+        chickenImage = new Image(getClass().getResourceAsStream("/com/example/spectra_arena/0edf6d07d6f1e2ed60546fb63e36aa73__2_-removebg-preview.png"));
 
         progressBar = new ProgressBar();
         progressBar.setPrefWidth(110);

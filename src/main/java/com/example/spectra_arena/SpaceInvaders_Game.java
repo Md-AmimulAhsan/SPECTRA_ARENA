@@ -9,6 +9,7 @@ import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
@@ -29,6 +30,8 @@ public class SpaceInvaders_Game {
     private Canvas gameCanvas;
     @FXML
     private Button restart;
+    @FXML
+    private Label scoreLabel;
 
     private final int WIDTH = 800;
     private final int HEIGHT = 600;
@@ -50,6 +53,9 @@ public class SpaceInvaders_Game {
     private boolean paused = false;
     private int score = 0;
     private final Random rand = new Random();
+    private Boss boss;
+    private boolean bossSpawned = false;
+    private final int BOSS_SPAWN_SCORE = 10; // Boss appears after 10 points
     public void initialize() {
         gc = gameCanvas.getGraphicsContext2D();
         backgroundImage = new Image(getClass().getResourceAsStream("/com/example/spectra_arena/gameBackground.png"));
@@ -78,6 +84,8 @@ public class SpaceInvaders_Game {
         player = new Rocket(WIDTH / 2, HEIGHT - 80, 60);
         bombs = new ArrayList<>();
         shots = new ArrayList<>();
+        bossSpawned = false;
+        boss = null;
     }
 
     private void gameLoop() {
@@ -91,11 +99,51 @@ public class SpaceInvaders_Game {
         if (gameOver) {
             gc.setFill(Color.RED);
             gc.fillText("Game Over! Score: " + score, WIDTH / 2 - 50, HEIGHT / 2);
+            backgroundMusic.stop();
             return;
+        }
+
+        if (!bossSpawned && score >= BOSS_SPAWN_SCORE) {
+            boss = new Boss(WIDTH / 2, 50, 100);
+            bossSpawned = true;
         }
 
         player.update();
         player.draw(gc);
+
+        if (boss != null && !boss.isDefeated()) {
+            boss.update(player.x);
+            boss.draw(gc);
+            
+            // Check boss shots
+            for (BossShot shot : boss.getShots()) {
+                if (shot.collidesWith(player)) {
+                    player.explode();
+                    gameOver = true;
+                    explosionSound.play();
+                    break;
+                }
+            }
+            
+            for (int i = shots.size() - 1; i >= 0; i--) {
+                Shot shot = shots.get(i);
+                if (shot.collidesWith(boss)) {
+                    boss.hit();
+                    shots.remove(i);
+                    explosionSound.play();
+                    if (boss.isDefeated()) {
+                        score += 10;
+                        updateScore();
+                    }
+                }
+            }
+            
+            if (boss.collidesWith(player)) {
+                player.explode();
+                gameOver = true;
+                explosionSound.play();
+            }
+        }
 
         for (int i = shots.size() - 1; i >= 0; i--) {
             Shot shot = shots.get(i);
@@ -107,6 +155,7 @@ public class SpaceInvaders_Game {
                     bomb.breakBomb();
                     shots.remove(i);
                     score++;
+                    updateScore();
                     explosionSound.play();
                     break;
                 }
@@ -138,13 +187,11 @@ public class SpaceInvaders_Game {
         if (rand.nextInt(100) < 2) {
             bombs.add(new Bomb(rand.nextInt(WIDTH - 60), 0, 60));
         }
-
-        gc.setFill(Color.WHITE);
-        gc.fillText("Score: " + score, 10, 20);
     }
 
     @FXML
     private void GoBack(ActionEvent e) throws IOException {
+        backgroundMusic.stop();
         FXMLLoader fxmlLoader = new FXMLLoader(START_PROJECT.class.getResource("F_Dashboard.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
         Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
@@ -156,8 +203,11 @@ public class SpaceInvaders_Game {
     private void restartGame(ActionEvent e) {
         gameOver = false;
         score = 0;
+        updateScore();
         setupGame();
         timeline.playFromStart();
+        backgroundMusic.stop();
+        backgroundMusic.play();
         gameCanvas.setFocusTraversable(true);
         gameCanvas.setOnKeyPressed(this::onKeyPressed);
         gameCanvas.setOnKeyReleased(this::onKeyReleased);
@@ -208,6 +258,10 @@ public class SpaceInvaders_Game {
                 player.setMovingRight(false);
                 break;
         }
+    }
+
+    private void updateScore() {
+        scoreLabel.setText(String.valueOf(score));
     }
 }
 
@@ -349,5 +403,101 @@ class Shot {
                 y < bomb.y + bomb.size && y + height > bomb.y;
     }
 
+    public boolean collidesWith(Boss boss) {
+        return x < boss.x + boss.size && x + width > boss.x &&
+               y < boss.y + boss.size && y + height > boss.y;
+    }
+}
 
+class Boss {
+    int x, y, size;
+    private int health = 5;
+    private boolean defeated = false;
+    private final int speed = 2;
+    private Image bossImage;
+    private List<BossShot> shots;
+    private final int SHOOT_INTERVAL = 60; // Frames between shots
+    private int shootTimer = 0;
+
+    public Boss(int x, int y, int size) {
+        this.x = x;
+        this.y = y;
+        this.size = size;
+        this.bossImage = new Image(getClass().getResourceAsStream("/com/example/spectra_arena/boss.png"));
+        this.shots = new ArrayList<>();
+    }
+
+    public void update(int playerX) {
+        // Move towards player
+        if (x < playerX) x += speed;
+        if (x > playerX) x -= speed;
+        
+        // Shooting logic
+        shootTimer++;
+        if (shootTimer >= SHOOT_INTERVAL) {
+            shots.add(new BossShot(x + size/2, y + size));
+            shootTimer = 0;
+        }
+        
+        // Update existing shots
+        shots.removeIf(shot -> shot.isOutOfBounds());
+        for (BossShot shot : shots) {
+            shot.update();
+        }
+    }
+
+    public void draw(GraphicsContext gc) {
+        gc.drawImage(bossImage, x, y, size, size);
+        // Draw shots
+        for (BossShot shot : shots) {
+            shot.draw(gc);
+        }
+    }
+
+    public void hit() {
+        health--;
+        if (health <= 0) defeated = true;
+    }
+
+    public boolean isDefeated() {
+        return defeated;
+    }
+
+    public boolean collidesWith(Rocket rocket) {
+        return rocket.x < x + size && rocket.x + rocket.size > x &&
+               rocket.y < y + size && rocket.y + rocket.size > y;
+    }
+
+    public List<BossShot> getShots() {
+        return shots;
+    }
+}
+
+class BossShot {
+    private int x, y;
+    private final int speed = 5;
+    private final int size = 10;
+
+    public BossShot(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public void update() {
+        y += speed;
+    }
+
+    public void draw(GraphicsContext gc) {
+        gc.setFill(Color.RED);
+        gc.fillOval(x - size/2, y - size/2, size, size);
+    }
+
+    public boolean isOutOfBounds() {
+        return y > 600;
+    }
+
+    public boolean collidesWith(Rocket rocket) {
+        return x - size/2 < rocket.x + rocket.size && x + size/2 > rocket.x &&
+               y - size/2 < rocket.y + rocket.size && y + size/2 > rocket.y;
+    }
 }

@@ -2,19 +2,104 @@
 
 <?import javafx.scene.canvas.Canvas?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="956.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spectra_arena.SpaceInvaders_Game">
+<AnchorPane prefHeight="600.0" prefWidth="956.0" style="-fx-background-color: #1a1a1a;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.spectra_arena.SpaceInvaders_Game">
     <Canvas fx:id="gameCanvas" height="600.0" width="800.0" />
-    <Button layoutX="839.0" layoutY="533.0" mnemonicParsing="false" onAction="#GoBack" prefHeight="26.0" prefWidth="92.0" style="-fx-background-color: #6cd4c1;" text="Go Back">
-        <font>
-            <Font name="System Bold" size="15.0" />
-        </font>
-    </Button>
-    <Button fx:id="restart" layoutX="839.0" layoutY="441.0" mnemonicParsing="false" onAction="#restartGame" prefHeight="26.0" prefWidth="92.0" style="-fx-background-color: red;" text="Restart">
-        <font>
-            <Font name="System Bold" size="15.0" />
-        </font>
-    </Button>
+    
+    <!-- Game Info Panel -->
+    <VBox layoutX="810.0" layoutY="20.0" spacing="15" style="-fx-background-color: #2a2a2a; -fx-padding: 15; -fx-background-radius: 10;">
+        <Label text="SPACE INVADERS" textFill="WHITE">
+            <font>
+                <Font name="System Bold" size="20.0" />
+            </font>
+        </Label>
+        
+        <!-- Score Display -->
+        <VBox spacing="5" style="-fx-padding: 10; -fx-background-color: #1a1a1a; -fx-background-radius: 5;">
+            <Label text="SCORE" textFill="#6cd4c1">
+                <font>
+                    <Font name="System Bold" size="16.0" />
+                </font>
+            </Label>
+            <Label fx:id="scoreLabel" text="0" textFill="WHITE">
+                <font>
+                    <Font name="System Bold" size="24.0" />
+                </font>
+            </Label>
+        </VBox>
+        
+        <!-- Controls Section -->
+        <VBox spacing="10" style="-fx-padding: 10 0;">
+            <Label text="CONTROLS" textFill="#6cd4c1">
+                <font>
+                    <Font name="System Bold" size="16.0" />
+                </font>
+            </Label>
+            <Label text="← / A : Move Left" textFill="WHITE">
+                <font>
+                    <Font size="14.0" />
+                </font>
+            </Label>
+            <Label text="→ / D : Move Right" textFill="WHITE">
+                <font>
+                    <Font size="14.0" />
+                </font>
+            </Label>
+            <Label text="SPACE : Shoot" textFill="WHITE">
+                <font>
+                    <Font size="14.0" />
+                </font>
+            </Label>
+            <Label text="P : Pause Game" textFill="WHITE">
+                <font>
+                    <Font size="14.0" />
+                </font>
+            </Label>
+        </VBox>
+        
+        <!-- Game Actions -->
+        <VBox spacing="10" style="-fx-padding: 20 0;">
+            <Button fx:id="restart" mnemonicParsing="false" onAction="#restartGame" prefHeight="40.0" prefWidth="120.0" 
+                    style="-fx-background-color: #e74c3c; -fx-background-radius: 5;" text="RESTART">
+                <font>
+                    <Font name="System Bold" size="16.0" />
+                </font>
+            </Button>
+            
+            <Button mnemonicParsing="false" onAction="#GoBack" prefHeight="40.0" prefWidth="120.0" 
+                    style="-fx-background-color: #6cd4c1; -fx-background-radius: 5;" text="MENU">
+                <font>
+                    <Font name="System Bold" size="16.0" />
+                </font>
+            </Button>
+        </VBox>
+        
+        <!-- Game Info -->
+        <VBox spacing="5" style="-fx-padding: 10 0;">
+            <Label text="HOW TO PLAY" textFill="#6cd4c1">
+                <font>
+                    <Font name="System Bold" size="16.0" />
+                </font>
+            </Label>
+            <Label text="Destroy aliens to score points" textFill="WHITE" wrapText="true">
+                <font>
+                    <Font size="12.0" />
+                </font>
+            </Label>
+            <Label text="Avoid alien attacks" textFill="WHITE" wrapText="true">
+                <font>
+                    <Font size="12.0" />
+                </font>
+            </Label>
+            <Label text="Boss appears at 10 points" textFill="WHITE" wrapText="true">
+                <font>
+                    <Font size="12.0" />
+                </font>
+            </Label>
+        </VBox>
+    </VBox>
 </AnchorPane>
